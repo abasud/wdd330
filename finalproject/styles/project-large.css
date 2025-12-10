@@ -6,16 +6,15 @@
         padding-bottom: 1rem;
     }
 
-    picture {
+    .hero-img {
         z-index: 0;
         position: absolute;
         inset: 0;
-    }
-
-    picture img {
         width: 100%;
         height: auto;
+        max-height: 1035px;
         opacity: 20%;
+        object-fit: cover;
     }
 
     .services {

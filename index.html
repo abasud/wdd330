@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy Meals</title>
-    <meta name="description" content="Healthy Meals offers a smart, personalized meal-planning system that uses real-time recipe data and user health metrics to automatically generate daily or weekly meal plans.">
+    <meta name="description" content="Healthy Meals offers a smart, personalized meal and excercise planning system that uses real-time recipe data and user health metrics to automatically generate meals and excercise routines according to the user needs.">
     <meta name="author" content="Abelardo Bermeo Andrade">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="./finalproject/styles/project-small.css">
     <link rel="stylesheet" href="./finalproject/styles/project-large.css">
     <script src="./finalproject/scripts/dates.js" defer></script>
-    <link rel="icon" href="images/healthy-meal-favicon.png">
+    <script type="module" src="./finalproject/scripts/localStorage.js" defer></script>
+    <link rel="icon" href="./finalproject/images/healthy-meal-favicon.png">
 </head>
 <body>
     <header>
@@ -20,24 +21,42 @@
     </header>
     <main>
         <h1>Let's Start!</h1>
-        <picture>
-            <source srcset="./finalproject/images/hero-img.jpg" media="(min-width: 800px)">
-            <img class="hero-img" src="./finalproject/images/hero-img-mobile.png" alt="hero image" width="800">
-        </picture>
-        <div class="services">
-            <figure>
-                <a href=""><img src="./finalproject/images/strava.jpg" alt="strava" loading="lazy"></a>
-                <figcaption><strong>Connect Strava Account</strong></figcaption>
-            </figure>
-            <figure>
-                <a href=""><img src="./finalproject/images/generate-meal.jpg" alt="generate meal" loading="lazy"></a>
-                <figcaption><strong>Generate Meal</strong></figcaption>
-            </figure>
-            <figure>
-                <a href=""><img src="./finalproject/images/favorites.jpg" alt="favorites" loading="lazy"></a>
-                <figcaption><strong>Favorites</strong></figcaption>
-            </figure>
+        <div class="insert-data-form">
+            <form id="insert-data">
+                <h2>Insert Your Data</h2>
+                <fieldset>
+                    <legend>Sex</legend>
+                    <div id="sex-radio">
+                        <label><input type="radio" name="sex" value="male" required>Male</label>
+                        <label><input type="radio" name="sex" value="female">Female</label>
+                    </div>
+                </fieldset>            
+                <label>Age (in years)<input type="number" id="age" required></label>
+                <label>Height (in meters)<input type="number" step="any" id="height" required></label>
+                <label>Weight (in kilograms)<input type="number" step="any" id="weight" required></label>
+                <fieldset>
+                    <legend>Activity Level</legend>
+                    <div id="activity-radio">
+                        <label><input type="radio" name="activity" value="sedentary" required>Sedentary (Little or no exercise)</label>
+                        <label><input type="radio" name="activity" value="lightly active">Light Active (Exercise 1-3 days/week)</label>
+                        <label><input type="radio" name="activity" value="moderately active">Moderately Active (Exercise 3-5 days/week)</label>
+                        <label><input type="radio" name="activity" value="very active">Very Active (Exercise 6-7 days/week)</label>
+                        <label><input type="radio" name="activity" value="extra active">Extra Active (Heavy training or physical job)</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Purpose</legend>
+                    <div id="purpose-radio">
+                        <label><input type="radio" name="purpose" value="maintain weight" required>Maintain Weight</label>
+                        <label><input type="radio" name="purpose" value="lose fat">Lose Fat</label>
+                        <label><input type="radio" name="purpose" value="gain muscle">Gain Muscle</label>
+                    </div>
+                </fieldset>
+                <button type="submit" id="insert-data-button">Share My Info</button>
+            </form>
         </div>
+        <div class="services-modal"></div>
+        <img class="hero-img" src="./finalproject/images/hero-img.png" alt="hero image">
     </main>
     <footer>
         <div>
