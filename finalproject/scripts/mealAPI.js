@@ -2,7 +2,7 @@ const mealType = JSON.parse(localStorage.getItem("mealType")) || {};
 
 let meal = mealType.mealType;
 
-const API_KEY = "3bfba4859b7c454ea45777e858b99dcc"; 
+const API_KEY = "44573a48cecc4dd990c6b28d5b0ab0fe"; 
 const URL_COMPLEX_SEARCH = "https://api.spoonacular.com/recipes/complexSearch";
 
 async function searchRecipes(type) {
